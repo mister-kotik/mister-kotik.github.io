@@ -1,0 +1,82 @@
+<head>
+    <title> Plans </title>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-200">
+    <div class="flex flex-col ml-auto mr-auto pb-16" style="width: 320px;">
+        <div class="flex flex-col w-full mt-16">
+            <h1 class="mt-0 mb-6 font-bold text-2xl text-center"> Horny? 🥵 Please wait... </h1>
+            <img src="photo1.jpg" class="rounded-md"/>
+            <div id="horny" class="mt-6 overflow-hidden rounded-md w-full bg-white h-12">
+                <div class="h-full bg-green-400 leading-8 p-2 text-center text-lg font-medium">
+                    0%
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col w-full mt-16">
+            <h1 class="mt-0 mb-6 font-bold text-2xl text-center"> Travel 🌍 </h1>
+            <img src="photo3.jpg" class="rounded-md"/>
+            <div id="travel" class="mt-6 overflow-hidden rounded-md w-full bg-white h-12">
+                <div class="h-full bg-green-400 leading-8 p-2 text-center text-lg font-medium">
+                    0%
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col w-full mt-16">
+            <h1 class="mt-0 mb-6 font-bold text-2xl text-center"> For a rainy day 🌧️ </h1>
+            <img src="photo2.jpg" class="rounded-md"/>
+            <div id="rainyDay" class="mt-6 overflow-hidden rounded-md w-full bg-white h-12">
+                <div class="h-full bg-green-400 leading-8 p-2 text-center text-lg font-medium">
+                    0%
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col w-full mt-16">
+            <h1 class="mt-0 mb-6 font-bold text-2xl text-center"> My own place 🏠 </h1>
+            <img src="photo4.jpg" class="rounded-md"/>
+            <div id="house" class="mt-6 overflow-hidden rounded-md w-full bg-white h-12">
+                <div class="h-full bg-green-400 leading-8 p-2 text-center text-lg font-medium">
+                    0%
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        for (const [d0, d1, dc, id] of [
+            [
+                new Date(2022, 3, 1),
+                new Date(2022, 7, 24),
+                new Date(),
+                'horny'
+            ],
+            [
+                0,
+                600000,
+                100000,
+                'travel'
+            ],
+            [
+                0,
+                1000000,
+                100000,
+                'rainyDay'
+            ],
+            [
+                0,
+                10000000,
+                0,
+                'house'
+            ],
+        ]) {
+            const t = Math.max(0, Math.min(1, (dc - d0) / (d1 - d0)));
+            const el = document.getElementById(id).children[0];
+            el.style.width = t * 100 + '%';
+            el.innerText = (t * 100).toFixed(1) + '%';
+        }
+    </script>
+</body>
